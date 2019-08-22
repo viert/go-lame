@@ -2,6 +2,12 @@
 
 A new generation lamemp3 Go bindings to replace legacy github.com/viert/lame
 
+## What's new
+
+  * more lame library code bound
+  * better id3 tag support
+  * used in a real project of mine so is going to be developed and maintained more rapidly and carefully (and hopefully)
+
 ## Example
 
 ```go
