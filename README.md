@@ -1,6 +1,6 @@
 # go-lame
 
-A new generation lamemp3 Go bindings to replace legacy github.com/viert/lame
+A new generation lamemp3 Go bindings to replace legacy https://github.com/viert/lame
 
 ## What's new
 
