@@ -332,7 +332,10 @@ func (e *Encoder) Flush() (n int, err error) {
 		co,
 		C.int(estimatedSize),
 	))
-	if bytesOut != 0 {
+	if bytesOut < 0 {
+		n = 0
+		err = convError(n)
+	} else if bytesOut != 0 {
 		n, err = e.output.Write(o[:bytesOut])
 	} else {
 		n = 0
