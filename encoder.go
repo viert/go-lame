@@ -264,8 +264,8 @@ func (e *Encoder) Write(p []byte) (int, error) {
 	blockAlignment := bitDepth / 8 * e.NumChannels() // 2 bytes per channel
 	bytesRemain := len(p) % blockAlignment
 	if bytesRemain > 0 {
-		e.inremainder = p[len(p)-bytesRemain : len(p)]
-		p = p[0 : len(p)-bytesRemain]
+		e.inremainder = p[len(p)-bytesRemain:]
+		p = p[:len(p)-bytesRemain]
 	} else {
 		e.inremainder = nil
 	}
@@ -315,7 +315,7 @@ func (e *Encoder) Write(p []byte) (int, error) {
 
 	m, err := e.output.Write(o)
 	if m < len(o) {
-		e.outremainder = o[m : len(o)-m]
+		e.outremainder = o[m:]
 	} else {
 		e.outremainder = nil
 	}
