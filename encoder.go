@@ -314,7 +314,8 @@ func (e *Encoder) Write(p []byte) (int, error) {
 	}
 
 	m, err := e.output.Write(o)
-	if m < len(o) {
+
+	if err == nil && m < len(o) {
 		e.outremainder = o[m : len(o)-m]
 	} else {
 		e.outremainder = nil
